@@ -1,10 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import CountriesList from './pages/CountriesList';
+import CountryDetail from './pages/CountryDetail';
+import Navbar from './components/Navbar';
+import './styles/App.css'; // Ensure styles are correctly imported
+/*import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './styles/App.css'
+
+
+*/
 
 function App() {
-  const [count, setCount] = useState(0)
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/countries" element={<CountriesList />} />
+        <Route path="/country/:name" element={<CountryDetail />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+
+/* const [count, setCount] = useState(0);
 
   return (
     <>
@@ -29,7 +52,6 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
-
-export default App
+*/
